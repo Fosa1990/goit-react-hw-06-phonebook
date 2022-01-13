@@ -1,7 +1,11 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 import Button from '../button';
-export default function Contacts({ contacts, onDeleteButtonClick }) {
+import { useSelector, useDispatch } from 'react-redux';
+import { deleteContact } from '../../redux/contacts/contacts-action';
+import { filteredContacts } from '../../redux/contacts/contacts-selectors';
+export default function Contacts() {
+  const dispatch = useDispatch();
+  const contacts = useSelector(filteredContacts);
   return (
     <ul>
       {contacts.map(person => (
@@ -9,17 +13,13 @@ export default function Contacts({ contacts, onDeleteButtonClick }) {
           {person.name} : {person.number}
           <Button
             content="Delete"
-            handleClick={() => onDeleteButtonClick(person.id)}
+            handleClick={() => dispatch(deleteContact(person.id))}
           />
         </ListItem>
       ))}
     </ul>
   );
 }
-Contacts.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object),
-  onDeleteButtonClick: PropTypes.func.isRequired,
-};
 export const ListItem = styled.li`
   position: relative;
   display: flex;

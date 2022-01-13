@@ -1,21 +1,22 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
-export default function Filter({ value, onChange }) {
+import { useSelector, useDispatch } from 'react-redux';
+import { addFilter } from '../../redux/contacts/contacts-action';
+import { getFilter } from '../../redux/contacts/contacts-selectors';
+
+export default function Filter() {
+  const dispatch = useDispatch();
+  const value = useSelector(getFilter);
+  const onChange = event => dispatch(addFilter(event.currentTarget.value));
   return (
-    <>
-      <Label>
-        <Title>
-          Find contacts by <Span>name</Span>
-        </Title>
-        <Input type="search" name="search" value={value} onChange={onChange} />
-      </Label>
-    </>
+    <Label>
+      <Title>
+        Find contacts by <Span>name</Span>
+      </Title>
+      <Input type="search" name="search" value={value} onChange={onChange} />
+    </Label>
   );
 }
-Filter.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};
+
 export const Label = styled.label`
   display: flex;
   flex-direction: column;
