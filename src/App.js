@@ -10,7 +10,7 @@ import contactsData from './data/contacts.json';
 import { nanoid } from 'nanoid';
 import useLocalStorage from './hooks/useLocalStorage';
 const defaultContacts = dataGenerator(contactsData);
-export default function APP() {
+export default function App() {
   const [contacts, setContacts] = useLocalStorage('contacts', defaultContacts);
   const [filter, setFilter] = useState('');
   const formSubmitHandler = data => {
