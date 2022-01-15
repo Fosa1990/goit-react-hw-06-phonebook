@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import Button from '../button';
 import { useSelector, useDispatch } from 'react-redux';
-import { deleteContact } from '../../redux/contacts/contacts-action';
-import { filteredContacts } from '../../redux/contacts/contacts-selectors';
+import { deleteContact } from '../../redux/contacts/items/contactsItemsSlice';
+import { filteredContacts } from '../../redux/contacts/selectors/contactsSelectors';
 export default function Contacts() {
   const dispatch = useDispatch();
   const contacts = useSelector(filteredContacts);

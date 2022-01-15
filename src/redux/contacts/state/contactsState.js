@@ -1,5 +1,5 @@
-import contactsData from '../../data/contacts.json';
-import dataGenerator from '../../helpers/dataGenerator';
+import contactsData from '../../../data/contacts.json';
+import dataGenerator from '../../../helpers/dataGenerator';
 
 const contacts = dataGenerator(contactsData);
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/contacts-action';
-import { getItems } from '../../redux/contacts/contacts-selectors';
+import { addContact } from '../../redux/contacts/items/contactsItemsSlice';
+import { getItems } from '../../redux/contacts/selectors/contactsSelectors';
 import styled from 'styled-components';
 import Section from '../section';
 import Container from '../container';
